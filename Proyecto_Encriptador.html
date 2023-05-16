@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="CSS/reset.css">
+		<link rel="stylesheet" type="text/css" href="CSS/diseno.css">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+		<title>Encriptador de texto</title>
+	
+	</head>
+	
+	<body>
+		<header>
+			<div class="presentacion">
+				<h1><img src="Imagenes/LogoAlura.png" alt="Logo Alura"></h1>
+				<br><h1 id="pequeTitulo">Proyecto de seguridad - Encriptador de texto</h1><br>			
+				<img src="Imagenes/bandera.png" alt="Bandera Oracle ONE" id="bandera">
+
+			</div>	
+
+		</header>
+
+		<main class="contenido">
+			<textarea cols="50" rows="20" required id="ingreso" class="tamañoTexto" required placeholder="Por favor no escribir con mayúsculas, acentos ni caracteres especiales."></textarea>
+			<ul class="posicionBoton">
+				<li><button id="en" class="boton"><h2>Encriptar</h2></button></li>
+				<li><button id="des" class="boton"><h2>Desencriptar</h2></button></li>
+				<li><button id="copiart" class="boton"><h2>Copiar</h2></button></li>
+			
+			</ul>
+
+			<textarea cols="50" rows="20" required id="respuesta" class="tamañoTexto"></textarea>
+			
+		
+		</main>
+
+	</body>
+
+	<footer class="posicionImagenes">
+		<img src="Imagenes/LogoAlura2.jpg" alt="Logo Alura" class="ajusteImagenes">
+		<img src="Imagenes/ONE2.png" alt="Logo ONE" class="ajusteImagenes">
+		<img src="Imagenes/Oracle2.jpg" alt="Logo Oracle" class="ajusteImagenes">	
+		<p id="pie">&copy Copyrigth Camilo E. Tomann L. - 2023</p>
+
+	</footer>
+
+	<script>
+		var frase1 = "";
+		var frase2 = "";
+		var textarea1 = document.querySelector("#ingreso");
+		textarea1.focus();
+		var textarea2 = document.querySelector("#respuesta");
+		
+		
+		var letras = [];
+		//var ultimaFrase = "";
+
+		function encriptar() {
+			frase1 = textarea1.value;
+
+			for (var i = 0; i < frase1.length; i++) {
+				letras.push(frase1.charAt(i));
+				
+			}
+
+			for (var i = 0; i < letras.length; i++) {
+				if (letras[i] == "a") {
+					letras[i] = "ai";
+				}				
+				if (letras[i] == "e") {
+					letras[i] = "enter";
+				}
+				if (letras[i] == "i") {
+					letras[i] = "imes";
+				}
+				if (letras[i] == "o") {
+					letras[i] = "ober";
+				}
+				if (letras[i] == "u") {
+					letras[i] = "ufat";
+				}
+				
+			}
+
+			var respuestaTextarea = document.querySelector("#respuesta");
+			respuestaTextarea.value = letras.join("");
+			textarea1.value = "";
+			textarea1.focus();
+			letras = [];
+			
+		}
+
+		function desencriptar() {
+			frase2 = textarea2.value;
+
+			for (var i = 0; i < frase2.length; i++) {
+				letras.push(frase2.charAt(i));
+				
+			}
+
+			for (var i = 0; i < letras.length; i++) {
+				if ((letras[i] == "a") && letras[i+1] == "i") {
+					letras[i] = "a";
+					letras.splice(i+1, 1);
+				}				
+				if ((letras[i] == "e") && (letras[i+1] == "n") && (letras[i+2] == "t") && (letras[i+3] == "e") && (letras[i+4] == "r")) {
+					letras[i] = "e";
+					letras.splice(i+1, 4);
+				}
+				if ((letras[i] == "i") && (letras[i+1] == "m") && (letras[i+2] == "e") && (letras[i+3] == "s")) {
+					letras[i] = "i";
+					letras.splice(i+1, 3);
+				}
+				if ((letras[i] == "o") && (letras[i+1] == "b") && (letras[i+2] == "e") && (letras[i+3] == "r")) {
+					letras[i] = "o";
+					letras.splice(i+1, 3);
+				}
+				if ((letras[i] == "u") && (letras[i+1] == "f") && (letras[i+2] == "a") && (letras[i+3] == "t")) {
+					letras[i] = "u";
+					letras.splice(i+1, 3);
+				}
+				
+			}
+
+			var ingresoTextarea = document.querySelector("#ingreso");
+			ingresoTextarea.value = letras.join("");
+			textarea2.value = "";
+			letras = [];
+			
+		}
+
+		function copiarTexto() {
+			var copitextarea = document.querySelector("#respuesta");
+
+			if (copitextarea.value.trim() !== ""){
+				copitextarea.select();
+				document.execCommand("copy");
+				alert("Mensaje copiado");
+			}
+		}
+
+		var button1 = document.querySelector("#en");
+		button1.onclick = encriptar;
+
+		var button2 = document.querySelector("#des");
+		button2.onclick = desencriptar;
+
+		var button3 = document.querySelector("#copiart");
+		button3.onclick = copiarTexto;
+
+	</script>
+
+</html>
