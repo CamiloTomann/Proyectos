@@ -1,0 +1,104 @@
+body{
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+#pequeTitulo{
+	position: absolute;
+	display: inline;
+	font-size: 37px;
+	font-weight: bold;
+	text-align: center;
+	color: #04105C;
+	top: 35px;
+	left: 150px;
+}
+
+header{
+	padding: 0 0 0 2px;
+	height: 85px;
+	border-color: #F7F7F7;
+    border-bottom-width: 1px;
+    border-style: solid;
+
+}
+
+#bandera{
+	position: absolute;
+	display: inline;
+	text-align: center;
+	right: -17px;
+	top: -30px;
+	width: 200px;
+	height: 115px;
+	margin: 30px 0 auto;
+}
+
+.presentacion{
+	width: 940px;
+	height: 120px;
+	margin: 30px 0 auto;
+}
+
+.contenido{
+	padding: 110px 0 10em 208px;
+	background: linear-gradient(white, #6DAD6D);
+}
+
+.tamañoTexto{
+	font-family: 'Montserrat', sans-serif;
+	resize: none;
+	border-radius: 10px;
+	background: #EAF7EA;
+}
+
+.posicionBoton{
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	margin: 120px 20px 10px 20px;
+}
+
+.posicionBoton li{
+	padding: 5px 0px 5px 0px;
+	width: 20%;
+}
+
+.boton{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	background: #A7D876;
+	border-radius: 5px
+}
+
+#en{
+	padding: 0px 30px 0px 7px;
+}
+
+#des{
+	padding: 0px 6px 0px 7px;
+}
+
+#copiart{
+	padding: 0px 48px 0px 7px;
+}
+
+.posicionImagenes{
+	text-align: center;
+	vertical-align: top;
+	padding: 60px 0px 5px 0px;
+	background: #6DAD6D;
+}
+
+.ajusteImagenes{
+	width: 130px;
+	height: 100px;
+	margin: 0px 25px 8px 0px;
+	border-radius: 50px;
+}
+
+#pie{
+	margin: 20px auto;
+	font-size: 10px;
+	font-weight: bold;
+}
